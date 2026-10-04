@@ -100,12 +100,13 @@ class CollectionPersistence:
             point_id: id of the point to delete
         """
         key = self.encode_key(point_id)
-        cursor = self.storage.cursor()
-        cursor.execute(
-            "DELETE FROM points WHERE id = ?",
-            (key,),
-        )
-        self.storage.commit()
+        # A failed commit must not leave a deletion for the next write to commit.
+        with self.storage:
+            cursor = self.storage.cursor()
+            cursor.execute(
+                "DELETE FROM points WHERE id = ?",
+                (key,),
+            )
 
     def load(self) -> Iterable[models.PointStruct]:
         """
