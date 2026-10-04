@@ -1,0 +1,189 @@
+FFFFFFFFFFFF..............                                               [100%]
+================================== FAILURES ===================================
+_ test_busy_delete_does_not_commit_with_an_unrelated_write[first-point-ids-sync] _
+tests\test_local_busy_delete.py:130: in test_busy_delete_does_not_commit_with_an_unrelated_write
+    assert live["ids"] == reopened["ids"] == expected_ids, {
+E   AssertionError: {'live': [1, 2, 3, 9, 10], 'pending_after_failure': True, 'reopened': [2, 3, 9, 10]}
+E   assert [1, 2, 3, 9, 10] == [2, 3, 9, 10]
+E     At index 0 diff: 1 != 2
+E     Left contains one more item: 10
+E     Use -v to get more diff
+_ test_busy_delete_does_not_commit_with_an_unrelated_write[first-point-ids-async] _
+tests\test_local_busy_delete.py:130: in test_busy_delete_does_not_commit_with_an_unrelated_write
+    assert live["ids"] == reopened["ids"] == expected_ids, {
+E   AssertionError: {'live': [1, 2, 3, 9, 10], 'pending_after_failure': True, 'reopened': [2, 3, 9, 10]}
+E   assert [1, 2, 3, 9, 10] == [2, 3, 9, 10]
+E     At index 0 diff: 1 != 2
+E     Left contains one more item: 10
+E     Use -v to get more diff
+_ test_busy_delete_does_not_commit_with_an_unrelated_write[first-point-filter-sync] _
+tests\test_local_busy_delete.py:130: in test_busy_delete_does_not_commit_with_an_unrelated_write
+    assert live["ids"] == reopened["ids"] == expected_ids, {
+E   AssertionError: {'live': [1, 2, 3, 9, 10], 'pending_after_failure': True, 'reopened': [2, 3, 9, 10]}
+E   assert [1, 2, 3, 9, 10] == [2, 3, 9, 10]
+E     At index 0 diff: 1 != 2
+E     Left contains one more item: 10
+E     Use -v to get more diff
+_ test_busy_delete_does_not_commit_with_an_unrelated_write[first-point-filter-async] _
+tests\test_local_busy_delete.py:130: in test_busy_delete_does_not_commit_with_an_unrelated_write
+    assert live["ids"] == reopened["ids"] == expected_ids, {
+E   AssertionError: {'live': [1, 2, 3, 9, 10], 'pending_after_failure': True, 'reopened': [2, 3, 9, 10]}
+E   assert [1, 2, 3, 9, 10] == [2, 3, 9, 10]
+E     At index 0 diff: 1 != 2
+E     Left contains one more item: 10
+E     Use -v to get more diff
+_ test_busy_delete_does_not_commit_with_an_unrelated_write[committed-prefix-ids-sync] _
+tests\test_local_busy_delete.py:130: in test_busy_delete_does_not_commit_with_an_unrelated_write
+    assert live["ids"] == reopened["ids"] == expected_ids, {
+E   AssertionError: {'live': [2, 3, 9, 10], 'pending_after_failure': True, 'reopened': [3, 9, 10]}
+E   assert [2, 3, 9, 10] == [3, 9, 10]
+E     At index 0 diff: 2 != 3
+E     Left contains one more item: 10
+E     Use -v to get more diff
+_ test_busy_delete_does_not_commit_with_an_unrelated_write[committed-prefix-ids-async] _
+tests\test_local_busy_delete.py:130: in test_busy_delete_does_not_commit_with_an_unrelated_write
+    assert live["ids"] == reopened["ids"] == expected_ids, {
+E   AssertionError: {'live': [2, 3, 9, 10], 'pending_after_failure': True, 'reopened': [3, 9, 10]}
+E   assert [2, 3, 9, 10] == [3, 9, 10]
+E     At index 0 diff: 2 != 3
+E     Left contains one more item: 10
+E     Use -v to get more diff
+_ test_busy_delete_does_not_commit_with_an_unrelated_write[committed-prefix-filter-sync] _
+tests\test_local_busy_delete.py:130: in test_busy_delete_does_not_commit_with_an_unrelated_write
+    assert live["ids"] == reopened["ids"] == expected_ids, {
+E   AssertionError: {'live': [2, 3, 9, 10], 'pending_after_failure': True, 'reopened': [3, 9, 10]}
+E   assert [2, 3, 9, 10] == [3, 9, 10]
+E     At index 0 diff: 2 != 3
+E     Left contains one more item: 10
+E     Use -v to get more diff
+_ test_busy_delete_does_not_commit_with_an_unrelated_write[committed-prefix-filter-async] _
+tests\test_local_busy_delete.py:130: in test_busy_delete_does_not_commit_with_an_unrelated_write
+    assert live["ids"] == reopened["ids"] == expected_ids, {
+E   AssertionError: {'live': [2, 3, 9, 10], 'pending_after_failure': True, 'reopened': [3, 9, 10]}
+E   assert [2, 3, 9, 10] == [3, 9, 10]
+E     At index 0 diff: 2 != 3
+E     Left contains one more item: 10
+E     Use -v to get more diff
+________________________ test_prevent_parallel_access _________________________
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:633: in _rmtree_unsafe
+    os.unlink(fullname)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmpqslbxmi5\\.lock'
+
+During handling of the above exception, another exception occurred:
+tests\test_local_persistence.py:86: in test_prevent_parallel_access
+    with tempfile.TemporaryDirectory() as tmpdir:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:950: in __exit__
+    self.cleanup()
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:954: in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:934: in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:781: in rmtree
+    return _rmtree_unsafe(path, onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:635: in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:909: in onexc
+    _os.unlink(path)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmpqslbxmi5\\.lock'
+________________________ test_local_dense_persistence _________________________
+tests\test_local_persistence.py:102: in test_local_dense_persistence
+    assert client.count(default_collection_name).count == 10
+E   AssertionError: assert 20 == 10
+E    +  where 20 = CountResult(count=20).count
+E    +    where CountResult(count=20) = <bound method QdrantClient.count of <qdrant_client.qdrant_client.QdrantClient object at 0x00000233E11E2120>>('example')
+E    +      where <bound method QdrantClient.count of <qdrant_client.qdrant_client.QdrantClient object at 0x00000233E11E2120>> = <qdrant_client.qdrant_client.QdrantClient object at 0x00000233E11E2120>.count
+
+During handling of the above exception, another exception occurred:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:633: in _rmtree_unsafe
+    os.unlink(fullname)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmp1yqbg_ci\\collection\\example\\storage.sqlite'
+
+During handling of the above exception, another exception occurred:
+tests\test_local_persistence.py:96: in test_local_dense_persistence
+    with tempfile.TemporaryDirectory() as tmpdir:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:950: in __exit__
+    self.cleanup()
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:954: in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:934: in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:781: in rmtree
+    return _rmtree_unsafe(path, onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:635: in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:909: in onexc
+    _os.unlink(path)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmp1yqbg_ci\\collection\\example\\storage.sqlite'
+_____________________ test_local_sparse_persistence[True] _____________________
+tests\test_local_persistence.py:146: in test_local_sparse_persistence
+    assert client.count(default_collection_name).count == 10
+E   AssertionError: assert 18 == 10
+E    +  where 18 = CountResult(count=18).count
+E    +    where CountResult(count=18) = <bound method QdrantClient.count of <qdrant_client.qdrant_client.QdrantClient object at 0x00000233E11E2C90>>('example')
+E    +      where <bound method QdrantClient.count of <qdrant_client.qdrant_client.QdrantClient object at 0x00000233E11E2C90>> = <qdrant_client.qdrant_client.QdrantClient object at 0x00000233E11E2C90>.count
+
+During handling of the above exception, another exception occurred:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:633: in _rmtree_unsafe
+    os.unlink(fullname)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmp1fuoujv9\\collection\\example\\storage.sqlite'
+
+During handling of the above exception, another exception occurred:
+tests\test_local_persistence.py:117: in test_local_sparse_persistence
+    with tempfile.TemporaryDirectory() as tmpdir:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:950: in __exit__
+    self.cleanup()
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:954: in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:934: in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:781: in rmtree
+    return _rmtree_unsafe(path, onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:635: in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:909: in onexc
+    _os.unlink(path)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmp1fuoujv9\\collection\\example\\storage.sqlite'
+____________________ test_local_sparse_persistence[False] _____________________
+tests\test_local_persistence.py:146: in test_local_sparse_persistence
+    assert client.count(default_collection_name).count == 10
+E   AssertionError: assert 18 == 10
+E    +  where 18 = CountResult(count=18).count
+E    +    where CountResult(count=18) = <bound method QdrantClient.count of <qdrant_client.qdrant_client.QdrantClient object at 0x00000233DF730D70>>('example')
+E    +      where <bound method QdrantClient.count of <qdrant_client.qdrant_client.QdrantClient object at 0x00000233DF730D70>> = <qdrant_client.qdrant_client.QdrantClient object at 0x00000233DF730D70>.count
+
+During handling of the above exception, another exception occurred:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:633: in _rmtree_unsafe
+    os.unlink(fullname)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmp3i6cb7zj\\collection\\example\\storage.sqlite'
+
+During handling of the above exception, another exception occurred:
+tests\test_local_persistence.py:117: in test_local_sparse_persistence
+    with tempfile.TemporaryDirectory() as tmpdir:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:950: in __exit__
+    self.cleanup()
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:954: in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:934: in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:781: in rmtree
+    return _rmtree_unsafe(path, onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:635: in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:909: in onexc
+    _os.unlink(path)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmp3i6cb7zj\\collection\\example\\storage.sqlite'
+- generated xml file: <REVIEW_WORKSPACE>\final-author.xml -
+=========================== short test summary info ===========================
+FAILED tests/test_local_busy_delete.py::test_busy_delete_does_not_commit_with_an_unrelated_write[first-point-ids-sync]
+FAILED tests/test_local_busy_delete.py::test_busy_delete_does_not_commit_with_an_unrelated_write[first-point-ids-async]
+FAILED tests/test_local_busy_delete.py::test_busy_delete_does_not_commit_with_an_unrelated_write[first-point-filter-sync]
+FAILED tests/test_local_busy_delete.py::test_busy_delete_does_not_commit_with_an_unrelated_write[first-point-filter-async]
+FAILED tests/test_local_busy_delete.py::test_busy_delete_does_not_commit_with_an_unrelated_write[committed-prefix-ids-sync]
+FAILED tests/test_local_busy_delete.py::test_busy_delete_does_not_commit_with_an_unrelated_write[committed-prefix-ids-async]
+FAILED tests/test_local_busy_delete.py::test_busy_delete_does_not_commit_with_an_unrelated_write[committed-prefix-filter-sync]
+FAILED tests/test_local_busy_delete.py::test_busy_delete_does_not_commit_with_an_unrelated_write[committed-prefix-filter-async]
+FAILED tests/test_local_persistence.py::test_prevent_parallel_access - Permis...
+FAILED tests/test_local_persistence.py::test_local_dense_persistence - Permis...
+FAILED tests/test_local_persistence.py::test_local_sparse_persistence[True]
+FAILED tests/test_local_persistence.py::test_local_sparse_persistence[False]
+12 failed, 14 passed in 5.81s

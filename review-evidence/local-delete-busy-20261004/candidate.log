@@ -1,0 +1,117 @@
+........FFFF..............                                               [100%]
+================================== FAILURES ===================================
+________________________ test_prevent_parallel_access _________________________
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:633: in _rmtree_unsafe
+    os.unlink(fullname)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmp4k68kdgt\\.lock'
+
+During handling of the above exception, another exception occurred:
+tests\test_local_persistence.py:86: in test_prevent_parallel_access
+    with tempfile.TemporaryDirectory() as tmpdir:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:950: in __exit__
+    self.cleanup()
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:954: in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:934: in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:781: in rmtree
+    return _rmtree_unsafe(path, onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:635: in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:909: in onexc
+    _os.unlink(path)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmp4k68kdgt\\.lock'
+________________________ test_local_dense_persistence _________________________
+tests\test_local_persistence.py:102: in test_local_dense_persistence
+    assert client.count(default_collection_name).count == 10
+E   AssertionError: assert 20 == 10
+E    +  where 20 = CountResult(count=20).count
+E    +    where CountResult(count=20) = <bound method QdrantClient.count of <qdrant_client.qdrant_client.QdrantClient object at 0x0000025C5E3D8FE0>>('example')
+E    +      where <bound method QdrantClient.count of <qdrant_client.qdrant_client.QdrantClient object at 0x0000025C5E3D8FE0>> = <qdrant_client.qdrant_client.QdrantClient object at 0x0000025C5E3D8FE0>.count
+
+During handling of the above exception, another exception occurred:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:633: in _rmtree_unsafe
+    os.unlink(fullname)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmp6mfetj96\\collection\\example\\storage.sqlite'
+
+During handling of the above exception, another exception occurred:
+tests\test_local_persistence.py:96: in test_local_dense_persistence
+    with tempfile.TemporaryDirectory() as tmpdir:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:950: in __exit__
+    self.cleanup()
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:954: in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:934: in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:781: in rmtree
+    return _rmtree_unsafe(path, onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:635: in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:909: in onexc
+    _os.unlink(path)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmp6mfetj96\\collection\\example\\storage.sqlite'
+_____________________ test_local_sparse_persistence[True] _____________________
+tests\test_local_persistence.py:146: in test_local_sparse_persistence
+    assert client.count(default_collection_name).count == 10
+E   AssertionError: assert 19 == 10
+E    +  where 19 = CountResult(count=19).count
+E    +    where CountResult(count=19) = <bound method QdrantClient.count of <qdrant_client.qdrant_client.QdrantClient object at 0x0000025C5B7BA990>>('example')
+E    +      where <bound method QdrantClient.count of <qdrant_client.qdrant_client.QdrantClient object at 0x0000025C5B7BA990>> = <qdrant_client.qdrant_client.QdrantClient object at 0x0000025C5B7BA990>.count
+
+During handling of the above exception, another exception occurred:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:633: in _rmtree_unsafe
+    os.unlink(fullname)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmpmdmnva9_\\collection\\example\\storage.sqlite'
+
+During handling of the above exception, another exception occurred:
+tests\test_local_persistence.py:117: in test_local_sparse_persistence
+    with tempfile.TemporaryDirectory() as tmpdir:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:950: in __exit__
+    self.cleanup()
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:954: in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:934: in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:781: in rmtree
+    return _rmtree_unsafe(path, onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:635: in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:909: in onexc
+    _os.unlink(path)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmpmdmnva9_\\collection\\example\\storage.sqlite'
+____________________ test_local_sparse_persistence[False] _____________________
+tests\test_local_persistence.py:146: in test_local_sparse_persistence
+    assert client.count(default_collection_name).count == 10
+E   AssertionError: assert 20 == 10
+E    +  where 20 = CountResult(count=20).count
+E    +    where CountResult(count=20) = <bound method QdrantClient.count of <qdrant_client.qdrant_client.QdrantClient object at 0x0000025C5E32ECC0>>('example')
+E    +      where <bound method QdrantClient.count of <qdrant_client.qdrant_client.QdrantClient object at 0x0000025C5E32ECC0>> = <qdrant_client.qdrant_client.QdrantClient object at 0x0000025C5E32ECC0>.count
+
+During handling of the above exception, another exception occurred:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:633: in _rmtree_unsafe
+    os.unlink(fullname)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmparhl6ikc\\collection\\example\\storage.sqlite'
+
+During handling of the above exception, another exception occurred:
+tests\test_local_persistence.py:117: in test_local_sparse_persistence
+    with tempfile.TemporaryDirectory() as tmpdir:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:950: in __exit__
+    self.cleanup()
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:954: in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:934: in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:781: in rmtree
+    return _rmtree_unsafe(path, onexc)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\shutil.py:635: in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\tempfile.py:909: in onexc
+    _os.unlink(path)
+E   PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: '<OWNER_HOME>\\AppData\\Local\\Temp\\tmparhl6ikc\\collection\\example\\storage.sqlite'
+- generated xml file: <REVIEW_WORKSPACE>\final-candidate.xml -
+=========================== short test summary info ===========================
+FAILED tests/test_local_persistence.py::test_prevent_parallel_access - Permis...
+FAILED tests/test_local_persistence.py::test_local_dense_persistence - Permis...
+FAILED tests/test_local_persistence.py::test_local_sparse_persistence[True]
+FAILED tests/test_local_persistence.py::test_local_sparse_persistence[False]
+4 failed, 22 passed in 5.68s

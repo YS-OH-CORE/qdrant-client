@@ -1,0 +1,32 @@
+{
+  "final-author": {
+    "total": 26,
+    "passed": 14,
+    "failed": 12,
+    "failing_cases": [
+      "test_busy_delete_does_not_commit_with_an_unrelated_write[first-point-ids-sync]",
+      "test_busy_delete_does_not_commit_with_an_unrelated_write[first-point-ids-async]",
+      "test_busy_delete_does_not_commit_with_an_unrelated_write[first-point-filter-sync]",
+      "test_busy_delete_does_not_commit_with_an_unrelated_write[first-point-filter-async]",
+      "test_busy_delete_does_not_commit_with_an_unrelated_write[committed-prefix-ids-sync]",
+      "test_busy_delete_does_not_commit_with_an_unrelated_write[committed-prefix-ids-async]",
+      "test_busy_delete_does_not_commit_with_an_unrelated_write[committed-prefix-filter-sync]",
+      "test_busy_delete_does_not_commit_with_an_unrelated_write[committed-prefix-filter-async]",
+      "test_prevent_parallel_access",
+      "test_local_dense_persistence",
+      "test_local_sparse_persistence[True]",
+      "test_local_sparse_persistence[False]"
+    ]
+  },
+  "final-candidate": {
+    "total": 26,
+    "passed": 22,
+    "failed": 4,
+    "failing_cases": [
+      "test_prevent_parallel_access",
+      "test_local_dense_persistence",
+      "test_local_sparse_persistence[True]",
+      "test_local_sparse_persistence[False]"
+    ]
+  }
+}
